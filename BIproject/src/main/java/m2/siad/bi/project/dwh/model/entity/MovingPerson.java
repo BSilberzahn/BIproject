@@ -20,7 +20,24 @@ public class MovingPerson extends BaseEntities{
 	private String studiesPlace;
 	@Column(name = "job_place",nullable=false,unique=true)
 	private String jobPlace;
-	
+	@Column(name = "immigrant_situation",nullable=false,unique=true)
+	private String immigrantSituation;
+	@Column(name = "person_type",nullable=false,unique=true)
+	private String personType;
+	@Column(name = "nationality",nullable=false,unique=true)
+	private String nationality;
+	@Column(name = "activity_type",nullable=false,unique=true)
+	private String activityType;
+	@Column(name = "economic_activity",nullable=false,unique=true)
+	private String economicActivity;
+	@Column(name = "means_locomotion",nullable=false,unique=true)
+	private String meansLocomotion;
+	@Column(name = "decade_age",nullable=false,unique=true)
+	private String decadeAge;
+	@Column(name = "quinquennial_age",nullable=false,unique=true)
+	private String quinquennialAge;
+	@Column(name = "average_duration",nullable=false,unique=true)
+	private String averageDuration;
 	
 	
 	public String getContractType() {
@@ -47,5 +64,61 @@ public class MovingPerson extends BaseEntities{
 	public void setCity(String city) {
 		this.city = city;
 	}
+	public String getImmigrantSituation() {
+		return immigrantSituation;
+	}
+	public void setImmigrantSituation(String immigrantSituation) {
+		this.immigrantSituation = immigrantSituation;
+	}
+	public String getPersonType() {
+		return personType;
+	}
+	public void setPersonType(String personType) {
+		this.personType = personType;
+	}
+	public String getNationality() {
+		return nationality;
+	}
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+	public String getActivityType() {
+		return activityType;
+	}
+	public void setActivityType(String activityType) {
+		this.activityType = activityType;
+	}
+	public String getEconomicActivity() {
+		return economicActivity;
+	}
+	public void setEconomicActivity(String economicActivity) {
+		this.economicActivity = economicActivity;
+	}
+	public String getMeansLocomotion() {
+		return meansLocomotion;
+	}
+	public void setMeansLocomotion(String meansLocomotion) {
+		this.meansLocomotion = meansLocomotion;
+	}
+	public String getDecadeAge() {
+		return decadeAge;
+	}
+	public void setDecadeAge(String decadeAge) {
+		this.decadeAge = decadeAge;
+	}
+	public String getQuinquennialAge() {
+		return quinquennialAge;
+	}
+	public void setQuinquennialAge(String quinquennialAge) {
+		this.quinquennialAge = quinquennialAge;
+	}
+	public String getAverageDuration() {
+		return averageDuration;
+	}
+	public void setAverageDuration(String averageDuration) {
+		this.averageDuration = averageDuration;
+	}
+	
+	
 
 }

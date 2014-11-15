@@ -12,13 +12,40 @@ import javax.persistence.Table;
 		@AttributeOverride(name="id",column=@Column(name="moving_type_id"))
 		)
 public class MovingType extends BaseEntities{
-	@Column(name = "type",nullable=false,unique=true)
-	private String type;
-	public String getType() {
-		return type;
+	@Column(name = "service_type",nullable=false,unique=true)
+	private String serviceType;
+	@Column(name = "moving_type",nullable=false,unique=true)
+	private String movingType;
+	@Column(name = "latitude",nullable=false,unique=true)
+	private String latitude;
+	@Column(name = "longitude",nullable=false,unique=true)
+	private String longitude;
+	
+	public String getServiceType() {
+		return serviceType;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setServiceType(String serviceType) {
+		this.serviceType = serviceType;
 	}
-
+	public String getMovingType() {
+		return movingType;
+	}
+	public void setMovingType(String movingType) {
+		this.movingType = movingType;
+	}
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+	
+	
+	
 }

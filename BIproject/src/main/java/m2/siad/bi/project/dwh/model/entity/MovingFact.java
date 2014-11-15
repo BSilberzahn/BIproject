@@ -23,29 +23,28 @@ public class MovingFact extends BaseEntities{
 	private MovingPerson person;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="city_id",nullable=false)
-	private MovingCity city;
-	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="surface_id",nullable=false)
-	private MovingSurface surface;
+	private City city;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="type_id",nullable=false)
 	private MovingType type;
-	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="duration_id",nullable=false)
-	private MovingDuration durationInterval;
 	@ManyToOne(optional=true,fetch=FetchType.EAGER)
 	@JoinColumn(name="year_id",nullable=true)
 	private Year year;
+	@Column(name = "duration",nullable=true)
+	private int duration;
+	@Column(name = "vulnerable_coefficient",nullable=true)
+	private int vulnerableCoefficient;
+	
 	public MovingPerson getPerson() {
 		return person;
 	}
 	public void setPerson(MovingPerson person) {
 		this.person = person;
 	}
-	public MovingCity getCity() {
+	public City getCity() {
 		return city;
 	}
-	public void setCity(MovingCity city) {
+	public void setCity(City city) {
 		this.city = city;
 	}
 	public Year getYear() {
@@ -54,25 +53,23 @@ public class MovingFact extends BaseEntities{
 	public void setYear(Year year) {
 		this.year = year;
 	}
-	public MovingSurface getSurface() {
-		return surface;
-	}
-	public void setSurface(MovingSurface surface) {
-		this.surface = surface;
-	}
 	public MovingType getType() {
 		return type;
 	}
 	public void setType(MovingType type) {
 		this.type = type;
 	}
-	public MovingDuration getDuration() {
-		return durationInterval;
+	public int getDuration() {
+		return duration;
 	}
-	public void setDuration(MovingDuration durationInterval) {
-		this.durationInterval = durationInterval;
+	public void setDuration(int duration) {
+		this.duration = duration;
 	}
-	
-	
+	public int getVulnerableCoefficient() {
+		return vulnerableCoefficient;
+	}
+	public void setVulnerableCoefficient(int vulnerableCoefficient) {
+		this.vulnerableCoefficient = vulnerableCoefficient;
+	}
 	
 }
