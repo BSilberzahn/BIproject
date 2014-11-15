@@ -18,7 +18,7 @@ public class TestPage extends HttpServlet {
 	}
 
 	/**
-	 *  permet de modifier la quantit� des �l�ments du panier (plus / moins / suppr)
+	 *  permet de modifier la quantite des elements du panier (plus / moins / suppr)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
