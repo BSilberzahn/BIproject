@@ -32,12 +32,16 @@ public class EnergyFact extends BaseEntities{
 	private Year year;
 	
 	//measures
-	@Column(name = "person_number",nullable=true)
-	private int personNumber;
-	@Column(name = "taux_d_effort_energetique",nullable=true)
-	private int effortEnergetique;
-	@Column(name = "revenus_annuels",nullable=true)
-	private int revenusAnnuels;
+	@Column(name = "person_count",nullable=true)
+	private int personCount;
+	@Column(name = "household_count",nullable=true)
+	private int householdCount;
+	@Column(name = "energy_effort_rate",nullable=true)
+	private int energyEffortRate;
+	@Column(name = "annual_incomes",nullable=true)
+	private int annualIncomes;
+	@Column(name = "estimation_annual_expenses",nullable=true)
+	private int estimationAnnualExpenses;
 	
 	public EnergyHouseholdLocation getHouseholdLocation() {
 		return householdLocation;
@@ -63,23 +67,35 @@ public class EnergyFact extends BaseEntities{
 	public void setYear(Year year) {
 		this.year = year;
 	}
-	public int getPersonNumber() {
-		return personNumber;
+	public int getPersonCount() {
+		return personCount;
 	}
-	public void setPersonNumber(int personNumber) {
-		this.personNumber = personNumber;
+	public void setPersonCount(int personCount) {
+		this.personCount = personCount;
 	}
-	public int getEffortEnergetique() {
-		return effortEnergetique;
+	public int getHouseholdCount() {
+		return householdCount;
 	}
-	public void setEffortEnergetique(int effortEnergetique) {
-		this.effortEnergetique = effortEnergetique;
+	public void setHouseholdCount(int householdCount) {
+		this.householdCount = householdCount;
 	}
-	public int getRevenusAnnuels() {
-		return revenusAnnuels;
+	public int getEnergyEffortRate() {
+		return energyEffortRate;
 	}
-	public void setRevenusAnnuels(int revenusAnnuels) {
-		this.revenusAnnuels = revenusAnnuels;
+	public void setEnergyEffortRate(int energyEffortRate) {
+		this.energyEffortRate = energyEffortRate;
+	}
+	public int getAnnualIncomes() {
+		return annualIncomes;
+	}
+	public void setAnnualIncomes(int annualIncomes) {
+		this.annualIncomes = annualIncomes;
+	}
+	public int getEstimationAnnualExpenses() {
+		return estimationAnnualExpenses;
+	}
+	public void setEstimationAnnualExpenses(int estimationAnnualExpenses) {
+		this.estimationAnnualExpenses = estimationAnnualExpenses;
 	}
 	
 }

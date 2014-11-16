@@ -15,7 +15,7 @@ public class City extends BaseEntities{
 	@Column(name = "name",nullable=false)
 	private String name;
 	@Column(name = "code_insee",nullable=false,unique=true)
-	private Integer inseeCode;
+	private String inseeCode;
 	@Column(name = "latitude",nullable=false)
 	private Float latitude;
 	@Column(name = "longitude",nullable=false)
@@ -32,10 +32,10 @@ public class City extends BaseEntities{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getInseeCode() {
+	public String getInseeCode() {
 		return inseeCode;
 	}
-	public void setInseeCode(Integer inseeCode) {
+	public void setInseeCode(String inseeCode) {
 		this.inseeCode = inseeCode;
 	}
 	public Float getLatitude() {
