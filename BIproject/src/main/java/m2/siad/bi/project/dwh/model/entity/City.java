@@ -12,43 +12,42 @@ import javax.persistence.Table;
 		@AttributeOverride(name="id",column=@Column(name="moving_city_id"))
 		)
 public class City extends BaseEntities{
-	@Column(name = "name",nullable=false,unique=true)
+	@Column(name = "name",nullable=false)
 	private String name;
 	@Column(name = "code_insee",nullable=false,unique=true)
-	private String inseeCode;
-	@Column(name = "latitude",nullable=false,unique=true)
-	private String latitude;
-	@Column(name = "longitude",nullable=false,unique=true)
-	private String longitude;
-	@Column(name = "region",nullable=false,unique=true)
+	private Integer inseeCode;
+	@Column(name = "latitude",nullable=false)
+	private Float latitude;
+	@Column(name = "longitude",nullable=false)
+	private Float longitude;
+	@Column(name = "region",nullable=false)
 	private String region;
-	@Column(name = "departement",nullable=false,unique=true)
+	@Column(name = "departement",nullable=false)
 	private String departement;
-	@Column(name = "population_density",nullable=false,unique=true)
-	private String populationDensity;
-	
+	@Column(name = "population_density",nullable=false)
+	private Integer populationDensity;
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getInseeCode() {
+	public Integer getInseeCode() {
 		return inseeCode;
 	}
-	public void setInseeCode(String inseeCode) {
+	public void setInseeCode(Integer inseeCode) {
 		this.inseeCode = inseeCode;
 	}
-	public String getLatitude() {
+	public Float getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(String latitude) {
+	public void setLatitude(Float latitude) {
 		this.latitude = latitude;
 	}
-	public String getLongitude() {
+	public Float getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(String longitude) {
+	public void setLongitude(Float longitude) {
 		this.longitude = longitude;
 	}
 	public String getRegion() {
@@ -63,10 +62,10 @@ public class City extends BaseEntities{
 	public void setDepartement(String departement) {
 		this.departement = departement;
 	}
-	public String getPopulationDensity() {
+	public Integer getPopulationDensity() {
 		return populationDensity;
 	}
-	public void setPopulationDensity(String populationDensity) {
+	public void setPopulationDensity(Integer populationDensity) {
 		this.populationDensity = populationDensity;
 	}
 	

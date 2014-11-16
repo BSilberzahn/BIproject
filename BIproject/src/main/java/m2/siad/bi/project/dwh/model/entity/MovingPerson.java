@@ -12,31 +12,31 @@ import javax.persistence.Table;
 		@AttributeOverride(name="id",column=@Column(name="moving_person_id"))
 		)
 public class MovingPerson extends BaseEntities{
-	@Column(name = "city",nullable=false,unique=true)
+	@Column(name = "city",nullable=false)
 	private String city;
-	@Column(name = "contract_type",nullable=false,unique=true)
+	@Column(name = "contract_type",nullable=false)
 	private String contractType;
-	@Column(name = "studies_place",nullable=false,unique=true)
+	@Column(name = "studies_place",nullable=false)
 	private String studiesPlace;
-	@Column(name = "job_place",nullable=false,unique=true)
+	@Column(name = "job_place",nullable=false)
 	private String jobPlace;
-	@Column(name = "immigrant_situation",nullable=false,unique=true)
+	@Column(name = "immigrant_situation",nullable=false)
 	private String immigrantSituation;
-	@Column(name = "person_type",nullable=false,unique=true)
+	@Column(name = "person_type",nullable=false)
 	private String personType;
-	@Column(name = "nationality",nullable=false,unique=true)
+	@Column(name = "nationality",nullable=false)
 	private String nationality;
-	@Column(name = "activity_type",nullable=false,unique=true)
+	@Column(name = "activity_type",nullable=false)
 	private String activityType;
-	@Column(name = "economic_activity",nullable=false,unique=true)
+	@Column(name = "economic_activity",nullable=false)
 	private String economicActivity;
-	@Column(name = "means_locomotion",nullable=false,unique=true)
+	@Column(name = "means_locomotion",nullable=false)
 	private String meansLocomotion;
-	@Column(name = "decade_age",nullable=false,unique=true)
+	@Column(name = "decade_age",nullable=false)
 	private String decadeAge;
-	@Column(name = "quinquennial_age",nullable=false,unique=true)
+	@Column(name = "quinquennial_age",nullable=false)
 	private String quinquennialAge;
-	@Column(name = "average_duration",nullable=false,unique=true)
+	@Column(name = "average_duration",nullable=false)
 	private String averageDuration;
 	
 	
