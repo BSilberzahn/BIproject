@@ -16,10 +16,10 @@ public class MovingPerson extends BaseEntities{
 	private String city;
 	@Column(name = "contract_type",nullable=false)
 	private String contractType;
-	@Column(name = "studies_place",nullable=false)
-	private String studiesPlace;
-	@Column(name = "job_place",nullable=false)
-	private String jobPlace;
+	@Column(name = "studies_place_indicator",nullable=false)
+	private String studiesPlaceIndicator;
+	@Column(name = "job_place_indicator",nullable=false)
+	private String jobPlaceIndicator;
 	@Column(name = "immigrant_situation",nullable=false)
 	private String immigrantSituation;
 	@Column(name = "person_type",nullable=false)
@@ -38,31 +38,29 @@ public class MovingPerson extends BaseEntities{
 	private String quinquennialAge;
 	@Column(name = "average_duration",nullable=false)
 	private String averageDuration;
-	
-	
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
 	public String getContractType() {
 		return contractType;
 	}
 	public void setContractType(String contractType) {
 		this.contractType = contractType;
 	}
-	public String getStudiesPlace() {
-		return studiesPlace;
+	public String getStudiesPlaceIndicator() {
+		return studiesPlaceIndicator;
 	}
-	public void setStudiesPlace(String studiesPlace) {
-		this.studiesPlace = studiesPlace;
+	public void setStudiesPlaceIndicator(String studiesPlaceIndicator) {
+		this.studiesPlaceIndicator = studiesPlaceIndicator;
 	}
-	public String getJobPlace() {
-		return jobPlace;
+	public String getJobPlaceIndicator() {
+		return jobPlaceIndicator;
 	}
-	public void setJobPlace(String jobPlace) {
-		this.jobPlace = jobPlace;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setJobPlaceIndicator(String jobPlaceIndicator) {
+		this.jobPlaceIndicator = jobPlaceIndicator;
 	}
 	public String getImmigrantSituation() {
 		return immigrantSituation;
@@ -119,6 +117,4 @@ public class MovingPerson extends BaseEntities{
 		this.averageDuration = averageDuration;
 	}
 	
-	
-
 }
