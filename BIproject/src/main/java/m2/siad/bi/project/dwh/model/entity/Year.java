@@ -9,16 +9,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name="tbl_year")
 @AttributeOverrides(
-        @AttributeOverride(name="id",column=@Column(name="year_id"))
-)
+		@AttributeOverride(name="id",column=@Column(name="year_id"))
+		)
 public class Year extends BaseEntities{
-	@Column(name = "student_year",nullable=false,unique=true)
-	private String studentYear;
-	public String getStudentYear() {
-		return studentYear;
+
+	@Column(name = "year",nullable=false)
+	private String year;
+
+	public String getYear() {
+		return year;
 	}
-	public void setStudentYear(String studentYear) {
-		this.studentYear = studentYear;
+
+	public void setYear(String year) {
+		this.year = year;
 	}
+	
 	
 }
