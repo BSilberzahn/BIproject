@@ -24,7 +24,7 @@ public class City extends BaseEntities{
 	private String region;
 	@Column(name = "departement",nullable=false)
 	private String departement;
-	@Column(name = "population_density",nullable=false)
+	@Column(name = "density_interval",nullable=false)
 	private Integer populationDensity;
 	public String getName() {
 		return name;
