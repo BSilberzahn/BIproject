@@ -11,8 +11,12 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
+@AttributeOverrides(
+        @AttributeOverride(name="id",column=@Column(name="person_id"))
+)
 @Table(name="tbl_moving_fact",
 	uniqueConstraints=@UniqueConstraint(columnNames={
+			"person_id",
 			"contract_id",
 			"city_departure_id",
 			"city_arrival_id",
@@ -26,9 +30,7 @@ import javax.persistence.UniqueConstraint;
 			"means_locomotion_dimension",
 			"immigrant_dimension",
 			"economic_activity_dimension"}))
-@AttributeOverrides(
-        @AttributeOverride(name="id",column=@Column(name="moving_fact_id"))
-)
+
 public class MovingFact extends BaseEntities{
 	 
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
