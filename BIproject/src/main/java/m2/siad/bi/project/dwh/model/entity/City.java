@@ -9,22 +9,22 @@ import javax.persistence.Table;
 @Entity
 @Table(name="tbl_city")
 @AttributeOverrides(
-		@AttributeOverride(name="id",column=@Column(name="moving_city_id"))
+		@AttributeOverride(name="id",column=@Column(name="city_id"))
 		)
 public class City extends BaseEntities{
-	@Column(name = "name",nullable=false)
+	@Column(name = "city_name",nullable=true)
 	private String name;
-	@Column(name = "code_insee",nullable=false,unique=true)
+	@Column(name = "code_insee",nullable=true)
 	private String inseeCode;
-	@Column(name = "latitude",nullable=false)
+	@Column(name = "latitude",nullable=true)
 	private Float latitude;
-	@Column(name = "longitude",nullable=false)
+	@Column(name = "longitude",nullable=true)
 	private Float longitude;
-	@Column(name = "region",nullable=false)
+	@Column(name = "region",nullable=true)
 	private String region;
-	@Column(name = "departement",nullable=false)
+	@Column(name = "departement",nullable=true)
 	private String departement;
-	@Column(name = "density_interval",nullable=false)
+	@Column(name = "density_interval",nullable=true)
 	private Integer populationDensity;
 	public String getName() {
 		return name;

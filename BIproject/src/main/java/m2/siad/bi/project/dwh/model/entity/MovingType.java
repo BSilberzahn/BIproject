@@ -9,26 +9,29 @@ import javax.persistence.Table;
 @Entity
 @Table(name="tbl_moving_type")
 @AttributeOverrides(
-		@AttributeOverride(name="id",column=@Column(name="moving_type_id"))
+		@AttributeOverride(name="id",column=@Column(name="move_type_id"))
 		)
 public class MovingType extends BaseEntities{
-	@Column(name = "service",nullable=false)
-	private String service;
-	@Column(name = "category",nullable=false)
-	private String category;
+	@Column(name = "move_type",nullable=true)
+	private String moveType;
+	@Column(name = "move_type_category",nullable=true)
+	private String moveCategory;
 	
-	public String getService() {
-		return service;
+	public String getMoveType() {
+		return moveType;
 	}
-	public void setService(String service) {
-		this.service = service;
+	public void setMoveType(String moveType) {
+		this.moveType = moveType;
 	}
-	public String getCategory() {
-		return category;
+	public String getMoveCategory() {
+		return moveCategory;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+	public void setMoveCategory(String moveCategory) {
+		this.moveCategory = moveCategory;
 	}
+	
+	
+	
 	
 	
 }

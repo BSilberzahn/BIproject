@@ -9,20 +9,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name="tbl_moving_indicator")
 @AttributeOverrides(
-		@AttributeOverride(name="id",column=@Column(name="moving_indicator_id"))
+		@AttributeOverride(name="id",column=@Column(name="indicator_id"))
 		)
 public class MovingIndicator extends BaseEntities{
 	
-	@Column(name = "indicator_type",nullable=false,unique=true)
-	private String indicatorType;
-	@Column(name = "indicator_category",nullable=false,unique=true)
+	@Column(name = "indicator_name",nullable=true)
+	private String indicatorName;
+	@Column(name = "indicator_category",nullable=true)
 	private String indicatorCategory;
 	
-	public String getIndicatorType() {
-		return indicatorType;
+	
+	public String getIndicatorName() {
+		return indicatorName;
 	}
-	public void setIndicatorType(String indicatorType) {
-		this.indicatorType = indicatorType;
+	public void setIndicatorName(String indicatorName) {
+		this.indicatorName = indicatorName;
 	}
 	public String getIndicatorCategory() {
 		return indicatorCategory;

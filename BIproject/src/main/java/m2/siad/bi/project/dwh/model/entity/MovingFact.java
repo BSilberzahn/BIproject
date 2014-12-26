@@ -17,61 +17,66 @@ import javax.persistence.UniqueConstraint;
 @Table(name="tbl_moving_fact",
 	uniqueConstraints=@UniqueConstraint(columnNames={
 			"person_id",
-			"contract_id",
-			"city_departure_id",
-			"city_arrival_id",
-			"type_id",
-			"indicator_id",
 			"year_id",
-			"duration_dimension",
-			"nationality_dimension",
-			"age_interval_dimension",
-			"sex_dimension",
-			"means_locomotion_dimension",
+			"age_dimension",
+			"departure_city_id",
+			"arrival_city_id",
+			"contract_id",
+			"indicator_id",
 			"immigrant_dimension",
-			"economic_activity_dimension"}))
+			"gender_dimension",
+			"nationality_dimension",
+			"economic_activity_dimension",
+			"conveyance_dimension",
+			"type_id",
+			"duration_dimension",
+			
+			
+			}))
 
 public class MovingFact extends BaseEntities{
 	 
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="contract_id",nullable=false)
+	@JoinColumn(name="contract_id",nullable=true)
 	private MovingContract contract;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="city_departure_id",nullable=false)
+	@JoinColumn(name="departure_city_id",nullable=true)
 	private City cityDeparture;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="city_arrival_id",nullable=false)
+	@JoinColumn(name="arrival_city_id",nullable=true)
 	private City cityArrival;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="type_id",nullable=false)
+	@JoinColumn(name="type_id",nullable=true)
 	private MovingType type;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="indicator_id",nullable=false)
+	@JoinColumn(name="indicator_id",nullable=true)
 	private MovingIndicator indicator;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="year_id",nullable=false)
+	@JoinColumn(name="year_id",nullable=true)
 	private Year year;
-	@Column(name = "duration_dimension",nullable=false)
+	@Column(name = "duration_dimension",nullable=true)
 	private String durationDimension;
-	@Column(name = "nationality_dimension",nullable=false)
+	@Column(name = "nationality_dimension",nullable=true)
 	private String nationalityDimension;
-	@Column(name = "age_interval_dimension",nullable=false)
+	@Column(name = "age_dimension",nullable=true)
 	private String ageIntervalDimension;
-	@Column(name = "sex_dimension",nullable=false)
-	private String sexDimension;
-	@Column(name = "means_locomotion_dimension",nullable=false)
+	@Column(name = "gender_dimension",nullable=true)
+	private String genderDimension;
+	@Column(name = "conveyance_dimension",nullable=true)
 	private String meansLocomotionDimension;
-	@Column(name = "immigrant_dimension",nullable=false)
+	@Column(name = "immigrant_dimension",nullable=true)
 	private String immigrantDimension;
-	@Column(name = "economic_activity_dimension",nullable=false)
+	@Column(name = "economic_activity_dimension",nullable=true)
 	private String economicActivityDimension;
 	
 	
 	//measure
 	@Column(name = "duration_measure",nullable=true)
 	private int durationMeasure;
-	@Column(name = "vulnerable_coefficient",nullable=true)
-	private Float vulnerableCoefficient;
+	@Column(name = "vulnerability_duration_measure",nullable=true)
+	private Float vulnerabilityDurationMeasure;
+	@Column(name = "estimated_wage_measure",nullable=true)
+	private Float estimatedWageMeasure;
 	
 	
 	public MovingContract getContract() {
@@ -128,11 +133,11 @@ public class MovingFact extends BaseEntities{
 	public void setAgeIntervalDimension(String ageIntervalDimension) {
 		this.ageIntervalDimension = ageIntervalDimension;
 	}
-	public String getSexDimension() {
-		return sexDimension;
+	public String getGenderDimension() {
+		return genderDimension;
 	}
-	public void setSexDimension(String sexDimension) {
-		this.sexDimension = sexDimension;
+	public void setGenderDimension(String genderDimension) {
+		this.genderDimension = genderDimension;
 	}
 	public String getMeansLocomotionDimension() {
 		return meansLocomotionDimension;
@@ -158,12 +163,19 @@ public class MovingFact extends BaseEntities{
 	public void setDurationMeasure(int durationMeasure) {
 		this.durationMeasure = durationMeasure;
 	}
-	public Float getVulnerableCoefficient() {
-		return vulnerableCoefficient;
+	public Float getVulnerabilityDurationMeasure() {
+		return vulnerabilityDurationMeasure;
 	}
-	public void setVulnerableCoefficient(Float vulnerableCoefficient) {
-		this.vulnerableCoefficient = vulnerableCoefficient;
+	public void setVulnerabilityDurationMeasure(Float vulnerabilityDurationMeasure) {
+		this.vulnerabilityDurationMeasure = vulnerabilityDurationMeasure;
 	}
+	public Float getEstimatedWageMeasure() {
+		return estimatedWageMeasure;
+	}
+	public void setEstimatedWageMeasure(Float estimatedWageMeasure) {
+		this.estimatedWageMeasure = estimatedWageMeasure;
+	}
+	
 	
 	
 }
