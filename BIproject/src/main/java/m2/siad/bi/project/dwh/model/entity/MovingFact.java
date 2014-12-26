@@ -1,20 +1,21 @@
 package m2.siad.bi.project.dwh.model.entity;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-//@AttributeOverrides(
-//        @AttributeOverride(name="id",column=@Column(name="person_id"))
-//)
+@AttributeOverrides(
+        @AttributeOverride(name="id",column=@Column(name="id"))
+)
 @Table(name="tbl_moving_fact",
 	uniqueConstraints=@UniqueConstraint(columnNames={
 			"person_id",
@@ -35,14 +36,13 @@ import javax.persistence.UniqueConstraint;
 			
 			}))
 
-public class MovingFact{
-
+public class MovingFact  extends BaseEntities{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "person_id",nullable=true)
 	private Integer personId;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="contract_id",nullable=true)
-	private MovingContract contract;
+	private Contract contract;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="departure_city_id",nullable=true)
 	private City cityDeparture;
@@ -84,10 +84,10 @@ public class MovingFact{
 	private Float estimatedWageMeasure;
 	
 	
-	public MovingContract getContract() {
+	public Contract getContract() {
 		return contract;
 	}
-	public void setContract(MovingContract contract) {
+	public void setContract(Contract contract) {
 		this.contract = contract;
 	}
 	public City getCityDeparture() {

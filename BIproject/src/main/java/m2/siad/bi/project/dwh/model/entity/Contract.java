@@ -7,11 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tbl_moving_contract")
+@Table(name="tbl_contract")
 @AttributeOverrides(
 		@AttributeOverride(name="id",column=@Column(name="contract_id"))
 		)
-public class MovingContract extends BaseEntities{
+public class Contract extends BaseEntities{
 
 	@Column(name = "contract_type",nullable=true)
 	private String contractType;
