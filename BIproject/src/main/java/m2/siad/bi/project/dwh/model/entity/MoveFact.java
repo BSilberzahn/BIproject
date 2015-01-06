@@ -16,73 +16,69 @@ import javax.persistence.UniqueConstraint;
 @AttributeOverrides(
         @AttributeOverride(name="id",column=@Column(name="id"))
 )
-@Table(name="tbl_moving_fact",
+@Table(name="move_fact",
 	uniqueConstraints=@UniqueConstraint(columnNames={
-			"person_id",
-			"year_id",
-			"age_dimension",
-			"departure_city_id",
-			"arrival_city_id",
-			"contract_id",
-			"indicator_id",
-			"immigrant_dimension",
-			"gender_dimension",
-			"nationality_dimension",
-			"economic_activity_dimension",
-			"conveyance_dimension",
-			"type_id",
-			"duration_dimension",
+			"dimension_year_id",
+			"dimension_age",
+			"dimension_departure_city_id",
+			"dimension_arrival_city_id",
+			"dimension_contract_id",
+			"dimension_indicator_id",
+			"dimension_immigrant",
+			"dimension_gender",
+			"dimension_nationality",
+			"dimension_economic_activity",
+			"dimension_conveyance",
+			"dimension_type_id",
+			"dimension_duration_id",
 			
 			
 			}))
 
-public class MovingFact  extends BaseEntities{
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "person_id",nullable=true)
-	private Integer personId;
+public class MoveFact  extends BaseEntities{
+
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="contract_id",nullable=true)
+	@JoinColumn(name="dimension_contract_id",nullable=false)
 	private Contract contract;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="departure_city_id",nullable=true)
+	@JoinColumn(name="dimension_departure_city_id",nullable=false)
 	private City cityDeparture;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="arrival_city_id",nullable=true)
+	@JoinColumn(name="dimension_arrival_city_id",nullable=false)
 	private City cityArrival;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="type_id",nullable=true)
-	private MovingType type;
+	@JoinColumn(name="dimension_type_id",nullable=false)
+	private MoveType type;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="indicator_id",nullable=true)
-	private MovingIndicator indicator;
+	@JoinColumn(name="dimension_indicator_id",nullable=false)
+	private MoveIndicator indicator;
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
-	@JoinColumn(name="year_id",nullable=true)
+	@JoinColumn(name="dimension_year_id",nullable=false)
 	private Year year;
-	@Column(name = "duration_dimension",nullable=true)
-	private String durationDimension;
-	@Column(name = "nationality_dimension",nullable=true)
+	@ManyToOne(optional=false,fetch=FetchType.EAGER)
+	@JoinColumn(name="dimension_duration_id",nullable=false)
+	private MoveDuration duration;
+	@Column(name = "dimension_nationality",nullable=false)
 	private String nationalityDimension;
-	@Column(name = "age_dimension",nullable=true)
+	@Column(name = "dimension_age",nullable=false)
 	private String ageIntervalDimension;
-	@Column(name = "gender_dimension",nullable=true)
+	@Column(name = "dimension_gender",nullable=false)
 	private String genderDimension;
-	@Column(name = "conveyance_dimension",nullable=true)
+	@Column(name = "dimension_conveyance",nullable=false)
 	private String meansLocomotionDimension;
-	@Column(name = "immigrant_dimension",nullable=true)
+	@Column(name = "dimension_immigrant",nullable=false)
 	private String immigrantDimension;
-	@Column(name = "economic_activity_dimension",nullable=true)
+	@Column(name = "dimension_economic_activity",nullable=false)
 	private String economicActivityDimension;
-	@Column(name = "vulnerability_duration_dimension",nullable=true)
-	private Float vulnerabilityDurationDimension;
-	
 	
 	
 	//measure
-	@Column(name = "duration_measure",nullable=true)
+	@Column(name = "measure_duration",nullable=false)
 	private int durationMeasure;
-	@Column(name = "estimated_wage_measure",nullable=true)
+	@Column(name = "measure_estimated_wage",nullable=false)
 	private Float estimatedWageMeasure;
-	
+	@Column(name = "measure_weight",nullable=false)
+	private Float weightMeasure;
 	
 	public Contract getContract() {
 		return contract;
@@ -102,16 +98,16 @@ public class MovingFact  extends BaseEntities{
 	public void setCityArrival(City cityArrival) {
 		this.cityArrival = cityArrival;
 	}
-	public MovingType getType() {
+	public MoveType getType() {
 		return type;
 	}
-	public void setType(MovingType type) {
+	public void setType(MoveType type) {
 		this.type = type;
 	}
-	public MovingIndicator getIndicator() {
+	public MoveIndicator getIndicator() {
 		return indicator;
 	}
-	public void setIndicator(MovingIndicator indicator) {
+	public void setIndicator(MoveIndicator indicator) {
 		this.indicator = indicator;
 	}
 	public Year getYear() {
@@ -120,11 +116,11 @@ public class MovingFact  extends BaseEntities{
 	public void setYear(Year year) {
 		this.year = year;
 	}
-	public String getDurationDimension() {
-		return durationDimension;
+	public MoveDuration getDuration() {
+		return duration;
 	}
-	public void setDurationDimension(String durationDimension) {
-		this.durationDimension = durationDimension;
+	public void setDuration(MoveDuration duration) {
+		this.duration = duration;
 	}
 	public String getNationalityDimension() {
 		return nationalityDimension;
@@ -168,18 +164,17 @@ public class MovingFact  extends BaseEntities{
 	public void setDurationMeasure(int durationMeasure) {
 		this.durationMeasure = durationMeasure;
 	}
-	public Float getVulnerabilityDurationDimension() {
-		return vulnerabilityDurationDimension;
-	}
-	public void setVulnerabilityDurationDimension(
-			Float vulnerabilityDurationDimension) {
-		this.vulnerabilityDurationDimension = vulnerabilityDurationDimension;
-	}
 	public Float getEstimatedWageMeasure() {
 		return estimatedWageMeasure;
 	}
 	public void setEstimatedWageMeasure(Float estimatedWageMeasure) {
 		this.estimatedWageMeasure = estimatedWageMeasure;
+	}
+	public Float getWeightMeasure() {
+		return weightMeasure;
+	}
+	public void setWeightMeasure(Float weightMeasure) {
+		this.weightMeasure = weightMeasure;
 	}
 	
 	

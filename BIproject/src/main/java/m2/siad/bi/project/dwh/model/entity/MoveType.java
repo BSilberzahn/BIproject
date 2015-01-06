@@ -7,14 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tbl_moving_type")
+@Table(name="move_type")
 @AttributeOverrides(
-		@AttributeOverride(name="id",column=@Column(name="move_type_id"))
+		@AttributeOverride(name="id",column=@Column(name="type_id"))
 		)
-public class MovingType extends BaseEntities{
-	@Column(name = "move_type",nullable=true)
+public class MoveType extends BaseEntities{
+	@Column(name = "type",nullable=true)
 	private String moveType;
-	@Column(name = "move_type_category",nullable=true)
+	@Column(name = "type_category",nullable=true)
 	private String moveCategory;
 	
 	public String getMoveType() {

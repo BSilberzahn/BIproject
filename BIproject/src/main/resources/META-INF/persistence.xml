@@ -28,6 +28,7 @@ version="2.0">
 <!-- 			<property name="javax.persistence.jdbc.password" value="biproject" /> -->
 <!-- 			<property name="hibernate.hbm2ddl.auto" value="create-drop" /> -->
 <!-- 			<property name="hibernate.archive.autodetection" value="class" /> -->
+<!-- 			<property name="hibernate.default_schema" value="v4" /> -->
 			
 <!-- 		</properties> -->
 <!-- 	</persistence-unit> -->
@@ -39,6 +40,7 @@ version="2.0">
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 			<property name="javax.persistence.jdbc.user" value="postgres" />
 			<property name="javax.persistence.jdbc.password" value="0000" />
+			<property name="hibernate.default_schema" value="v4" />
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 			<property name="hibernate.archive.autodetection" value="class" />
 			

@@ -7,11 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tbl_moving_indicator")
+@Table(name="move_indicator")
 @AttributeOverrides(
 		@AttributeOverride(name="id",column=@Column(name="indicator_id"))
 		)
-public class MovingIndicator extends BaseEntities{
+public class MoveIndicator extends BaseEntities{
 	
 	@Column(name = "indicator_name",nullable=true)
 	private String indicatorName;
