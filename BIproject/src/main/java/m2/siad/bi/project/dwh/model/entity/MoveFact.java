@@ -1,73 +1,66 @@
 package m2.siad.bi.project.dwh.model.entity;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
-@AttributeOverrides(
-        @AttributeOverride(name="id",column=@Column(name="id"))
-)
-@Table(name="move_fact",
-	uniqueConstraints=@UniqueConstraint(columnNames={
-			"dimension_year_id",
-			"dimension_age",
-			"dimension_departure_city_id",
-			"dimension_arrival_city_id",
-			"dimension_contract_id",
-			"dimension_indicator_id",
-			"dimension_immigrant",
-			"dimension_gender",
-			"dimension_nationality",
-			"dimension_economic_activity",
-			"dimension_conveyance",
-			"dimension_type_id",
-			"dimension_duration_id",
-			
-			
-			}))
+@IdClass(MovePK.class)
+@Table(name="move_fact")
 
-public class MoveFact  extends BaseEntities{
+public class MoveFact implements Serializable {
 
+	@Id
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="dimension_contract_id",nullable=false)
 	private Contract contract;
+	@Id
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="dimension_departure_city_id",nullable=false)
 	private City cityDeparture;
+	@Id
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="dimension_arrival_city_id",nullable=false)
 	private City cityArrival;
+	@Id
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="dimension_type_id",nullable=false)
 	private MoveType type;
+	@Id
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="dimension_indicator_id",nullable=false)
 	private MoveIndicator indicator;
+	@Id
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="dimension_year_id",nullable=false)
 	private Year year;
+	@Id
 	@ManyToOne(optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="dimension_duration_id",nullable=false)
 	private MoveDuration duration;
+	@Id
 	@Column(name = "dimension_nationality",nullable=false)
 	private String nationalityDimension;
+	@Id
 	@Column(name = "dimension_age",nullable=false)
 	private String ageIntervalDimension;
+	@Id
 	@Column(name = "dimension_gender",nullable=false)
 	private String genderDimension;
+	@Id
 	@Column(name = "dimension_conveyance",nullable=false)
 	private String meansLocomotionDimension;
+	@Id
 	@Column(name = "dimension_immigrant",nullable=false)
 	private String immigrantDimension;
+	@Id
 	@Column(name = "dimension_economic_activity",nullable=false)
 	private String economicActivityDimension;
 	
